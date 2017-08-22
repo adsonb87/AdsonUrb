@@ -75,7 +75,7 @@ public class UsuarioDoSistemaSiluBean {
 		}
 
 		this.user = new UsuarioDoSistemaSilu();
-		Messages.addGlobalError("Cadastrado com sucesso");
+		Messages.addGlobalInfo("Usuário cadastrado com sucesso");
 
 		return "home?faces-redirect=true";
 	}

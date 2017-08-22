@@ -13,8 +13,10 @@
 			<f:viewAction action="#{usuarioDoSistemaSiluBean.carregarUsuarioDoSistemaSiluPorId}" if="#{param.userId != null}"></f:viewAction>
 		</f:metadata>
 	
+	 	<ui:define name="title">Usuários - SILU</ui:define>
+	 	
 		<ui:define name="titulo">
-			<p:outputPanel>Novo Usuário do Silu</p:outputPanel>
+			<p:outputPanel>Novo Usuário do Silu</p:outputPanel>			
 		</ui:define>
 		
 		<ui:define name="conteudo">
@@ -63,12 +65,11 @@
 		<h:form id="formTableUsuarios">
 			<p:dataList value="#{usuarioDoSistemaSiluBean.usuariosDoSistemaSilu}" var="usuario" id="tableUsuarios" itemType="none" emptyMessage="Não existem registros">
 				<f:facet name="header">
-					Autores
+					Usuários cadastrados
 				</f:facet>				
+				#{usuario.nome} - #{usuario.email} - #{usuario.tipo.descricao}
 				<h:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px" action="#{usuarioDoSistemaSiluBean.carregarUsuarioDoSistemaSilu(usuario)}"/>
-				<h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" value="remover" action="#{usuarioDoSistemaSiluBean.removerUsuarioDoSistemaSilu(usuario)}"/>
-				#{usuario.nome} - #{usuario.email}
-				
+				<h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" value="remover" action="#{usuarioDoSistemaSiluBean.removerUsuarioDoSistemaSilu(usuario)}"/>				
 			</p:dataList>
 		</h:form>
 		</ui:define>

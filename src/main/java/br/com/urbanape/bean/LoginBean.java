@@ -2,14 +2,14 @@ package br.com.urbanape.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.urbanape.DAO.UsuarioDoSistemaSiluDAO;
 import br.com.urbanape.modelo.UsuarioDoSistemaSilu;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class LoginBean {
 
 	private UsuarioDoSistemaSilu user = new UsuarioDoSistemaSilu();
@@ -38,6 +38,7 @@ public class LoginBean {
 		FacesContext contexto = FacesContext.getCurrentInstance();
 
 		if (existe) {
+			this.user = new UsuarioDoSistemaSiluDAO().buscaPorLogin(this.user.getLogin());
 			contexto.getExternalContext().getSessionMap().put("UsuarioDoSistemaSilulogado", this.user);
 			return "userSilu?faces-redirect-true";
 		} else {

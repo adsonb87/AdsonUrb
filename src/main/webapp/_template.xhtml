@@ -6,20 +6,24 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	
-	<h:head/>
+	<h:head/>            
 	<h:body>	
 		<div id="cabecalho">
-			<p:graphicImage library="img" name="logo.png"/>
+<!-- 			<p:graphicImage library="img" name="logo.png"/> -->
+			<title><ui:insert name="title"/></title>
 			<p:growl id="messages" showDetail="true" autoUpdate="true"/>
 			
-			<p:panelGrid columns="2" style="position:absolute;right:10px;">
+			<p:panelGrid columns="1" style="position:absolute;right:10px;">
 				
-				<h:form rendered="#{UsuarioDoSistemaSilulogado != null}">
+				<h:form rendered="#{UsuarioDoSistemaSilulogado != null}">	
+					<h:panelGrid columns="1">
+					Logado como <p:outputLabel value="#{loginBean.user.nome}" />
 				    <p:menuButton value="Menu" style="">
 				        <p:menuitem value="Usuários do Sistema" action="userSilu?faces-redirect=true" icon="ui-icon-pencil"/>
 				        <p:separator />
 				        <p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="ui-icon-extlink"/>
 				    </p:menuButton>
+					</h:panelGrid>				
 				</h:form>
 			</p:panelGrid>
 			
