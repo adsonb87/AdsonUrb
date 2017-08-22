@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="_template.xhtml">
+		
+		<f:metadata>
+			<f:viewParam name="userId" value="#{usuarioDoSistemaSiluBean.userId}"></f:viewParam>
+			<f:viewAction action="#{usuarioDoSistemaSiluBean.carregarUsuarioDoSistemaSiluPorId}" if="#{param.userId != null}"></f:viewAction>
+		</f:metadata>
+	
+		<ui:define name="titulo">
+			<p:outputPanel>Novo Usuário do Silu</p:outputPanel>
+		</ui:define>
+		
+		<ui:define name="conteudo">
+		<h:form id="formUserSilu">
+			<p:fieldset legend="Novo Usuário">
+				<h:panelGrid columns="2">
+				
+					<p:outputLabel value="Nome:" for="nome" />
+					<p:inputText id="nome" value="#{usuarioDoSistemaSiluBean.user.nome}" required="true" requiredMessage="Nome é obrigatório" 
+								validatorMessage="Nome deve ter, no mínimo, 5 caracteres.">
+					 	<f:validateLength minimum="5"/>
+					 	<f:ajax event="blur" render="mensagens"/>
+					</p:inputText>
+					
+					<p:outputLabel value="Login:" for="login" />
+					<p:inputText id="login" value="#{usuarioDoSistemaSiluBean.user.login}" required="true" requiredMessage="Login é obrigatório" 
+								validatorMessage="Login deve ter, no mínimo, 5 caracteres.">
+					 	<f:validateLength minimum="5"/>
+					 	<f:ajax event="blur" render="mensagens"/>
+					</p:inputText>
+					
+					<p:outputLabel value="Senha:" for="senha"/>
+        			<p:password id="senha" value="#{usuarioDoSistemaSiluBean.user.senha}" required="true" requiredMessage="Informe a senha."/>					
+					
+					<p:outputLabel value="Email:" for="email"/>
+					<p:inputText id="email" value="#{usuarioDoSistemaSiluBean.user.email}" required="true" requiredMessage="Email é obrigatório" validatorMessage="Email inválido">
+						<f:attribute name="type" value="email"/>
+						<f:passThroughAttribute name="placeholder" value="Email do usuário"/>
+						<f:validateRegex pattern=".+@.+" />
+						<f:ajax event="blur" render="mensagens"/>
+					</p:inputText>
+					
+					<p:outputLabel value="Tipo:" for="tipo"/>
+					<p:selectOneMenu value="#{usuarioDoSistemaSiluBean.tipoId}" id="tipo">
+						<f:selectItems value="#{usuarioDoSistemaSiluBean.tipos}" var="tipo" 
+						itemLabel="#{tipo.descricao}" itemValue="#{tipo.id}"/>
+					</p:selectOneMenu>
+					
+					<p:commandButton value="Gravar" action="#{usuarioDoSistemaSiluBean.gravar}" process="@form" update="@form :formTableUsuarios:tableUsuarios"/>
+					<p:commandButton value="Limpar" action="#{usuarioDoSistemaSiluBean.limpar}" process="@form" update="@form :formTableUsuarios:tableUsuarios"/>					
+					
+				</h:panelGrid>
+			</p:fieldset>
+			
+		</h:form>
+		<h:form id="formTableUsuarios">
+			<p:dataList value="#{usuarioDoSistemaSiluBean.usuariosDoSistemaSilu}" var="usuario" id="tableUsuarios" itemType="none" emptyMessage="Não existem registros">
+				<f:facet name="header">
+					Autores
+				</f:facet>				
+				<h:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px" action="#{usuarioDoSistemaSiluBean.carregarUsuarioDoSistemaSilu(usuario)}"/>
+				<h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" value="remover" action="#{usuarioDoSistemaSiluBean.removerUsuarioDoSistemaSilu(usuario)}"/>
+				#{usuario.nome} - #{usuario.email}
+				
+			</p:dataList>
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</html>
