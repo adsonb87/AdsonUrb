@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="_template.xhtml">
+		
+		<f:metadata>
+			<f:viewParam name="tipoId" value="#{tipoDeUsuarioBean.tipoId}"></f:viewParam>
+			<f:viewAction action="#{tipoDeUsuarioBean.carregarTipoDeUsuarioDoSistemaSiluPorId}" if="#{param.tipoId != null}"></f:viewAction>
+		</f:metadata>
+	
+	 	<ui:define name="title">Tipo de Usuário - SILU</ui:define>
+	 	
+		<ui:define name="titulo">
+			<p:outputPanel>Novo Tipo de Usuário</p:outputPanel>
+		</ui:define>
+		
+		<ui:define name="conteudo">
+		<h:form id="formTipotipoSilu">
+			<p:fieldset legend="Novo Tipo de Usuário">
+				<h:panelGrid columns="2">
+				
+					<p:outputLabel value="Descrição:" for="desc" />
+					<p:inputText id="desc" value="#{tipoDeUsuarioBean.tipo.descricao}" required="true" requiredMessage="A Descrição é obrigatória" 
+								validatorMessage="Descrição deve ter, no mínimo, 5 caracteres.">
+					 	<f:validateLength minimum="5"/>
+					 	<f:ajax event="blur" render="mensagens"/>
+					</p:inputText>
+					
+					<p:outputLabel value="Sigla:" for="silga" />
+					<p:inputText id="silga" value="#{tipoDeUsuarioBean.tipo.tipo}" required="true" requiredMessage="Sigla é obrigatória" 
+								validatorMessage="Sigla deve ser apenas uma ou duas letras.">
+					 	<f:validateLength minimum="1" maximum="2"/>
+					 	<f:ajax event="blur" render="mensagens"/>
+					</p:inputText>
+					
+					<p:commandButton value="Gravar" action="#{tipoDeUsuarioBean.gravar}" process="@form" update="@form :formTableUsuarios:tableUsuarios :formTableUsuarios:tableTipoDeUsuarios"/>
+					<p:commandButton value="Limpar" action="#{tipoDeUsuarioBean.limpar}" process="@form" update="@form :formTableUsuarios:tableUsuarios :formTableUsuarios:tableTipoDeUsuarios"/>
+					
+				</h:panelGrid>
+			</p:fieldset>
+			
+		</h:form>
+		<h:form id="formTableUsuarios">
+			<h:panelGrid columns="2">			
+				<p:dataList value="#{usuarioDoSistemaSiluBean.usuariosDoSistemaSilu}" var="usuario" id="tableUsuarios" itemType="none" emptyMessage="Não existem registros">
+					<f:facet name="header">
+						Usuários cadastrados
+					</f:facet>				
+					#{usuario.nome} - #{usuario.email} - #{usuario.tipo.descricao}
+					<h:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px" action="#{usuarioDoSistemaSiluBean.carregarUserDeOutraView(usuario.id)}">
+<!-- 						<f:param name="idUser"  value="#{usuario.id}"/> -->
+					</h:commandLink>
+					<h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" value="remover" action="#{tipoDeUsuarioBean.removerUsuarioDoSistemaSilu(usuario)}">
+						<f:param name="objeto"  value="#{usuario}"/>
+					</h:commandLink>				
+				</p:dataList>
+				<p:dataList value="#{tipoDeUsuarioBean.tipos}" var="tipo" id="tableTipoDeUsuarios" itemType="none" emptyMessage="Não existem registros">
+					<f:facet name="header">
+						Tipos cadastrados
+					</f:facet>				
+					#{tipo.descricao} - #{tipo.tipo}
+					<h:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px" action="#{tipoDeUsuarioBean.carregarTipoDeUsuario(tipo)}"/>
+					<h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" value="remover" action="#{tipoDeUsuarioBean.removerTipoDeUsuario(tipo)}"/>				
+				</p:dataList>
+			</h:panelGrid>
+		</h:form>
+		</ui:define>
+	</ui:composition>
+</html>

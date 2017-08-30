@@ -46,7 +46,7 @@
 			<version>5.0</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- OmniFaces -->
 		<dependency>
 			<groupId>org.omnifaces</groupId>
@@ -117,12 +117,19 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- ojdbc6.jar example -->
+		<!-- CDI -->
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0</version>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.3.3.Final</version>
 		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>oracle</groupId> -->
+<!-- 			<artifactId>ojdbc6</artifactId> -->
+<!-- 			<version>11.2.0</version> -->
+<!-- 		</dependency> -->
+		
 	</dependencies>
 
 </project>

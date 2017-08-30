@@ -19,7 +19,8 @@
 					<h:panelGrid columns="1">
 					Logado como <p:outputLabel value="#{loginBean.user.nome}" />
 				    <p:menuButton value="Menu" style="">
-				        <p:menuitem value="Usuários do Sistema" action="userSilu?faces-redirect=true" icon="ui-icon-pencil"/>
+				        <p:menuitem value="Usuários" action="userSilu?faces-redirect=true" icon="ui-icon-pencil"/>
+				        <p:menuitem value="Tipo de usuário" action="tipoUserSilu?faces-redirect=true" icon="ui-icon-pencil"/>
 				        <p:separator />
 				        <p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="ui-icon-extlink"/>
 				    </p:menuButton>

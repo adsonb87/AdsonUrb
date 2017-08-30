@@ -1,5 +1,7 @@
 package br.com.urbanape.bean;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -10,7 +12,7 @@ import br.com.urbanape.modelo.UsuarioDoSistemaSilu;
 
 @ManagedBean
 @SessionScoped
-public class LoginBean {
+public class LoginBean implements Serializable{
 
 	private UsuarioDoSistemaSilu user = new UsuarioDoSistemaSilu();
 	private String senha;
