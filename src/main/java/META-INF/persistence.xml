@@ -9,15 +9,14 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		
 		<!-- Aqui são listadas todas as entidades -->
-		<class>br.com.urbanape.modelo.TipoDeUsuarioDoSistemaSilu</class>
-		<class>br.com.urbanape.modelo.UsuarioDoSistemaSilu</class>		
+		
 		
 		<properties>
 			<!-- Propriedades JDBC -->
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@10.20.0.1:1521/SBEHOMOLOG" />
-			<property name="javax.persistence.jdbc.user" value="urbana" />
-			<property name="javax.persistence.jdbc.password" value="urbana2015" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@10.10.0.22:1521/SBEHOMOL2" />
+			<property name="javax.persistence.jdbc.user" value="mercury" />
+			<property name="javax.persistence.jdbc.password" value="mercury2" />
 
 			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/> -->
 <!-- 			<property name="hibernate.hbm2ddl.auto" value="update"/> -->

@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import br.com.urbanape.util.JPAUtil;
+
 public class DAO<T> {
 
 	private final Class<T> classe;

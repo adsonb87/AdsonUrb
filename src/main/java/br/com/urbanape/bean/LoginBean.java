@@ -7,8 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import br.com.urbanape.DAO.UsuarioDoSistemaSiluDAO;
 import br.com.urbanape.modelo.UsuarioDoSistemaSilu;
+import br.com.urbanape.modelo.UsuarioDoSistemaSiluDAO;
 
 @ManagedBean
 @SessionScoped
