@@ -2,16 +2,14 @@ package br.com.urbanape.bean;
 
 import java.io.IOException;
 
-import javax.annotation.ManagedBean;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import org.primefaces.model.UploadedFile;
 
-import br.com.urbanape.modelo.ValidaPedido;
-
 @ManagedBean
 @ViewScoped
-public class FileUploadBean {
+public class FileUploadView {
 	
 	private UploadedFile file;
 	
@@ -25,8 +23,8 @@ public class FileUploadBean {
 		System.out.println(file.toString());
 	}
 	
-	public void upload(String enderecoArquivo) throws IOException{
-		new ValidaPedido(enderecoArquivo).validaArquivoPedido();
+	public void upload() throws IOException{
+		
     }	
 	
 }
