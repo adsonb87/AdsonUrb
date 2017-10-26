@@ -1,16 +1,11 @@
-package br.com.pe.urbana.teste;
+package br.com.urbanape.Teste;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
-
-import br.com.pe.urbana.modelo.Pedido;
-import br.com.pe.urbana.modelo.ValidaCpf;
-import br.com.pe.urbana.modelo.ValidaQuantidadeDias;
 
 public class TesteValidacaoPedido2 {
 

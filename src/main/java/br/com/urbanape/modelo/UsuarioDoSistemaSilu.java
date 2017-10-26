@@ -3,27 +3,25 @@ package br.com.urbanape.modelo;
 import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Entity
-@Table(name = "SILU_USUARIO_SISTEMA")
-@SequenceGenerator(name = "id_sequence_usuario_sistema_silu", sequenceName = "ID_SEQ", initialValue = 5, allocationSize = 1)
+//@Entity
+//@Table(name = "SILU_USUARIO_SISTEMA")
+//@SequenceGenerator(name = "id_sequence_usuario_sistema_silu", sequenceName = "ID_SEQ", initialValue = 5, allocationSize = 1)
+
 public class UsuarioDoSistemaSilu {
 
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_sequence_usuario_sistema_silu")
+//	@Id
+//	@Column(name = "ID")
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_sequence_usuario_sistema_silu")
 	private Integer id;
 
 	private String nome;
@@ -31,10 +29,10 @@ public class UsuarioDoSistemaSilu {
 	private String email;
 	private String senha;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	//@OneToOne(fetch = FetchType.EAGER)
 	private TipoDeUsuarioDoSistemaSilu tipo = new TipoDeUsuarioDoSistemaSilu();
 
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Calendar ultimaAlteracao = Calendar.getInstance();
 
 	public Integer getId() {

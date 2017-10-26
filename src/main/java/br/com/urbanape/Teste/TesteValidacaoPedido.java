@@ -1,4 +1,4 @@
-package br.com.pe.urbana.teste;
+package br.com.urbanape.Teste;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
 
-import br.com.pe.urbana.modelo.Pedido;
-import br.com.pe.urbana.modelo.ValidaCpf;
-import br.com.pe.urbana.modelo.ValidaQuantidadeDias;
+import br.com.urbanape.modelo.Pedido;
+import br.com.urbanape.modelo.ValidaCpf;
+import br.com.urbanape.modelo.ValidaQuantidadeDias;
 
 public class TesteValidacaoPedido {
 
@@ -34,8 +34,8 @@ public class TesteValidacaoPedido {
 					
 					String[] text = linha.split(Pattern.quote("|"));
 					
-					//VERIFICA SE O CPF VAI ESTAR VAZIO E APÓS SE O CPF É VÁLIDO, 
-					//CASO NÃO, EXIBE O ERRO NO LOG, SE FOR VAZIO INFORMA E PREENCHE O CPF COM 0
+					//VERIFICA SE O CPF VAI ESTAR VAZIO E APï¿½S SE O CPF ï¿½ Vï¿½LIDO, 
+					//CASO Nï¿½O, EXIBE O ERRO NO LOG, SE FOR VAZIO INFORMA E PREENCHE O CPF COM 0
 					if(!text[0].isEmpty()){
 						if(!validaCpf.isCPF(text[0])){
 							System.out.println("Erro cpf, linha: " + line);
@@ -61,25 +61,25 @@ public class TesteValidacaoPedido {
 					}
 					
 					
-					//VERIFICA SE O VALOR MINIMO É MENOR QUE 3 PASSAGENS DO ANEL A OU VAZIA
+					//VERIFICA SE O VALOR MINIMO ï¿½ MENOR QUE 3 PASSAGENS DO ANEL A OU VAZIA
 					//CASO FOR VAZIO VAI PREENCHER O VALOR COM 0
 					if(!text[2].isEmpty()){
 						if(!(Double.parseDouble(text[2])>=960)){ //Se o valor minimo for menor que 3 passagens A acontece o erro
-							System.out.println("Erro valor mínimo diário, linha: " + line);
+							System.out.println("Erro valor mï¿½nimo diï¿½rio, linha: " + line);
 						}
 						pedido.setValorUsoDiario(Double.parseDouble(text[2]));
 					}else{
-						System.out.println("Campo valor mínimo diário vazio, linha: " + line);
+						System.out.println("Campo valor mï¿½nimo diï¿½rio vazio, linha: " + line);
 						pedido.setValorUsoDiario(0);
 					}
 					
 					
-					//VERIFICA SE O CAMPO DO NOME CONTÉM O NOME TESTE
-					//CASO FOR USUÁRIO DE TESTE ELE VAI INFORMAR NO LOG
-					//COMO NÃO É CAMPO OBRIGATÓRIO CASO ESTEJA VÁZIO VAI SER PREENCHIDO VAZIO
+					//VERIFICA SE O CAMPO DO NOME CONTï¿½M O NOME TESTE
+					//CASO FOR USUï¿½RIO DE TESTE ELE VAI INFORMAR NO LOG
+					//COMO Nï¿½O ï¿½ CAMPO OBRIGATï¿½RIO CASO ESTEJA Vï¿½ZIO VAI SER PREENCHIDO VAZIO
 					if(!text[3].isEmpty()){
 						if(text[3].toUpperCase().contains("TESTE")){
-							System.out.println("Usuário de teste encontrado, linha: " + line);
+							System.out.println("Usuï¿½rio de teste encontrado, linha: " + line);
 						}
 						pedido.setNome(text[3]);
 					}else{
@@ -88,33 +88,33 @@ public class TesteValidacaoPedido {
 					
 					
 					//VERIFICA SE O CAMPO TIPO CARTAO VAI ESTAR VAZIO
-					//CASO FOR VAZIO VAI SER PREENCHIDO COM 0, SE NÃO FOR
-					//VAI SER VERIFICADO SE É ALGUM DOS DOIS TIPOS 19 OU 17
+					//CASO FOR VAZIO VAI SER PREENCHIDO COM 0, SE Nï¿½O FOR
+					//VAI SER VERIFICADO SE ï¿½ ALGUM DOS DOIS TIPOS 19 OU 17
 					if(!text[4].isEmpty()){
 						Integer tipoCartao = Integer.parseInt(text[4]);
 						if(tipoCartao == 19 || tipoCartao == 17){
 							pedido.setTipoCartao(tipoCartao);							
 						}else{
-							System.out.println("Erro tipo do cartão, linha: " + line);
+							System.out.println("Erro tipo do cartï¿½o, linha: " + line);
 						}
 					}else{
-						System.out.println("Campo tipo cartão vazio, linha: " + line);
+						System.out.println("Campo tipo cartï¿½o vazio, linha: " + line);
 						pedido.setTipoCartao(0);
 					}
 					
 					
 					//VERIFICA SE O CAMPO APLICACAO VAI ESTAR VAZIO
-					//CASO FOR VAI SER PREENCHIDO COM 0, SE NÃO FOR
-					//VAI SER VERIFICADO SE É ALGUM DOS DOIS TIPOS 911 OU 905
+					//CASO FOR VAI SER PREENCHIDO COM 0, SE Nï¿½O FOR
+					//VAI SER VERIFICADO SE ï¿½ ALGUM DOS DOIS TIPOS 911 OU 905
 					if(!text[5].isEmpty()){
 						Integer aplicacao = Integer.parseInt(text[5]);
 						if(aplicacao == 911 || aplicacao == 905){
 							pedido.setAplicacao(aplicacao);							
 						}else{
-							System.out.println("Erro tipo da aplicação, linha: " + line);
+							System.out.println("Erro tipo da aplicaï¿½ï¿½o, linha: " + line);
 						}
 					}else{
-						System.out.println("Campo tipo cartão vazio, linha: " + line);
+						System.out.println("Campo tipo cartï¿½o vazio, linha: " + line);
 						pedido.setAplicacao(0);
 					}
 					
@@ -124,7 +124,7 @@ public class TesteValidacaoPedido {
 				line ++;
 			}
 			
-			if(!duplicidadeCpf(lcpf).isEmpty()){ // CHAMA O METÓDO PARA VERIFICAR A DUPLICIDADE DE CPF,re
+			if(!duplicidadeCpf(lcpf).isEmpty()){ // CHAMA O METï¿½DO PARA VERIFICAR A DUPLICIDADE DE CPF,re
 				System.out.println("Cpf em duplicidade nas linhas: " + duplicidadeCpf(lcpf));
 			}
 			System.out.println("Pedido Validado");
@@ -134,7 +134,7 @@ public class TesteValidacaoPedido {
 	}
 	
 	public static ArrayList<Integer> duplicidadeCpf(ArrayList<String> lcpf){
-		// VERIFICAR SE HÁ DUPLICIDADE NO CPF
+		// VERIFICAR SE Hï¿½ DUPLICIDADE NO CPF
 		int i = 2;
 		int count = 0;
 		ArrayList<Integer> ln = new ArrayList<>();

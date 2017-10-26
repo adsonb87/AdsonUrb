@@ -1,15 +1,13 @@
-package br.com.pe.urbana.teste;
+package br.com.urbanape.Teste;
 
 import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import br.com.pe.urbana.modelo.Rechargeinfo;
-import br.com.pe.urbana.modelo.Rechargeinfostaff;
-import br.com.pe.urbana.util.JPAUtil;
+import br.com.urbanape.modelo.Rechargeinfo;
+import br.com.urbanape.util.JPAUtil;
 
 public class Teste4 {
 	public static void main(String[] args) throws IOException {		
@@ -33,7 +31,7 @@ public class Teste4 {
 		List<Rechargeinfo> r = query.getResultList();
 		
 		if(r.isEmpty()){
-			System.out.println("Não encontrado");
+			System.out.println("Nï¿½o encontrado");
 		}else{
 			System.out.println("Encontrado");
 		}

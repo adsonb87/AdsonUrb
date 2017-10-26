@@ -1,4 +1,4 @@
-package br.com.pe.urbana.bean;
+package br.com.urbanape.bean;
 
 import java.io.InputStream;
 

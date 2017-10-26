@@ -1,13 +1,13 @@
-package br.com.pe.urbana.teste;
+package br.com.urbanape.Teste;
 
 import java.io.IOException;
 
-import br.com.pe.urbana.modelo.ValidaPedido;
+import br.com.urbanape.modelo.ValidaPedido;
 
 public class Teste3 {
 	public static void main(String[] args) throws IOException {
 
-		ValidaPedido pedido = new ValidaPedido("C:\\Users\\adsons\\Desktop\\RECARGA NOVEMBRO2017.txt");
+		ValidaPedido pedido = new ValidaPedido("PedidoTeste.txt");
 
 		pedido.validaArquivoPedido();
 
