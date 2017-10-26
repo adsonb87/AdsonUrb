@@ -17,6 +17,7 @@ public class Rechargeinfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="RI_ID")
 	private long riId;
 
@@ -244,5 +245,27 @@ public class Rechargeinfo implements Serializable {
 
 		return rechargeinfostaff;
 	}
+
+	@Override
+	public String toString() {
+		return "Rechargeinfo [riId=" + riId + ", cdId=" + cdId + ", cteId=" + cteId + ", prvId=" + prvId
+				+ ", prvIdPostdelivery=" + prvIdPostdelivery + ", rdtId=" + rdtId + ", riCardtype=" + riCardtype
+				+ ", riExternalcrdintsnr=" + riExternalcrdintsnr + ", riExternalproductid=" + riExternalproductid
+				+ ", riExternalusrid=" + riExternalusrid + ", riQtyperday=" + riQtyperday + ", riRegdate=" + riRegdate
+				+ ", riReguser=" + riReguser + ", riStatus=" + riStatus + ", riTemp=" + riTemp + ", usrId=" + usrId
+				+ ", usrutSeqnbr=" + usrutSeqnbr + ", utId=" + utId + ", rechargeinfostaffs=" + rechargeinfostaffs
+				+ ", getRiId()=" + getRiId() + ", getCdId()=" + getCdId() + ", getCteId()=" + getCteId()
+				+ ", getPrvId()=" + getPrvId() + ", getPrvIdPostdelivery()=" + getPrvIdPostdelivery() + ", getRdtId()="
+				+ getRdtId() + ", getRiCardtype()=" + getRiCardtype() + ", getRiExternalcrdintsnr()="
+				+ getRiExternalcrdintsnr() + ", getRiExternalproductid()=" + getRiExternalproductid()
+				+ ", getRiExternalusrid()=" + getRiExternalusrid() + ", getRiQtyperday()=" + getRiQtyperday()
+				+ ", getRiRegdate()=" + getRiRegdate() + ", getRiReguser()=" + getRiReguser() + ", getRiStatus()="
+				+ getRiStatus() + ", getRiTemp()=" + getRiTemp() + ", getUsrId()=" + getUsrId() + ", getUsrutSeqnbr()="
+				+ getUsrutSeqnbr() + ", getUtId()=" + getUtId() + ", getRechargeinfostaffs()=" + getRechargeinfostaffs()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
+	
 
 }

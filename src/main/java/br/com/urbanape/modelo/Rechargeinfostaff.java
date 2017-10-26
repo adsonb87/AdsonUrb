@@ -106,8 +106,8 @@ public class Rechargeinfostaff implements Serializable {
 	private BigDecimal scId;
 
 	//bi-directional many-to-one association to Rechargeinfo
-	@ManyToOne
-	@JoinColumn(name="RI_ID")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="RI_ID",  insertable=false, updatable=false)
 	private Rechargeinfo rechargeinfo;
 
 	public Rechargeinfostaff() {
@@ -352,5 +352,21 @@ public class Rechargeinfostaff implements Serializable {
 	public void setRechargeinfo(Rechargeinfo rechargeinfo) {
 		this.rechargeinfo = rechargeinfo;
 	}
+
+	@Override
+	public String toString() {
+		return "Rechargeinfostaff [id=" + id + ", dtId=" + dtId + ", dtId2=" + dtId2 + ", fgId=" + fgId + ", prvId="
+				+ prvId + ", prvgrpSeqnbr=" + prvgrpSeqnbr + ", ristfAddcomp=" + ristfAddcomp + ", ristfAddnbr="
+				+ ristfAddnbr + ", ristfAddress=" + ristfAddress + ", ristfBirthdate=" + ristfBirthdate + ", ristfCity="
+				+ ristfCity + ", ristfDistrict=" + ristfDistrict + ", ristfDocnbr=" + ristfDocnbr + ", ristfDocnbr2="
+				+ ristfDocnbr2 + ", ristfEmail=" + ristfEmail + ", ristfGender=" + ristfGender + ", ristfHrid="
+				+ ristfHrid + ", ristfName=" + ristfName + ", ristfNamemother=" + ristfNamemother + ", ristfQtdperday="
+				+ ristfQtdperday + ", ristfRegdate=" + ristfRegdate + ", ristfReguser=" + ristfReguser
+				+ ", ristfStCode=" + ristfStCode + ", ristfStatus=" + ristfStatus + ", ristfStatusgenerationcard="
+				+ ristfStatusgenerationcard + ", ristfTelAreacode=" + ristfTelAreacode + ", ristfTelNumber="
+				+ ristfTelNumber + ", ristfZip=" + ristfZip + ", scId=" + scId + ", rechargeinfo=" + rechargeinfo + "]";
+	}
+	
+	
 
 }

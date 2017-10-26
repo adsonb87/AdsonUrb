@@ -49,7 +49,7 @@ public class ValidaPedido {
 		if(!validaTipoArquivo(arquivo)){
 			System.out.println("Tipo de arquivo incorreto !");
 		}else{
-			for(String linha : linhasArquivo){
+ 			for(String linha : linhasArquivo){
 				pedido = new Pedido();
 				//VERIFICANDO SE A PRIMEIRA LINHA É O CABECALHO 0800
 				if (!linha.equals("0800")) {

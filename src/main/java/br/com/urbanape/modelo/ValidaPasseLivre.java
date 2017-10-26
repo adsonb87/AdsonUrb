@@ -16,7 +16,7 @@ public class ValidaPasseLivre {
 			sb.append(" SELECT DISTINCT ri"); 
 			sb.append(" FROM Rechargeinfo ri ");
 			sb.append(" JOIN FETCH ri.rechargeinfostaffs rs ");
-			sb.append(" WHERE ri.prvId = 12715 "); //--PARA PCR USAR 27788 - RMR 12715
+			sb.append(" WHERE ri.prvId = 27788 "); //--PARA PCR USAR 27788 - RMR 12715
 			sb.append(" AND ri.utId <> 5 ");
 			sb.append(" AND rs.ristfDocnbr = :pCpf");
 			
