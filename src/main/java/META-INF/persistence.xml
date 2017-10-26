@@ -7,6 +7,9 @@
 		
 		<!-- Implementação do JPA, no nosso caso Hibernate -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>br.com.urbanape.modelo.Rechargeinfo</class>
+		<class>br.com.urbanape.modelo.Rechargeinfostaff</class>
+		<class>br.com.urbanape.modelo.RechargeinfostaffPK</class>
 		
 		<!-- Aqui são listadas todas as entidades -->
 		
